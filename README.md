@@ -40,10 +40,10 @@ The application is built on a **Client-Server architecture** utilizing **WebSock
 
 ### Data Flow
 1.  **Capture**: Browser captures video frame.
-2.  **Transmission**: Frame sent as base64 string over WebSocket to `/ws/student/{id}`.
+2.  **Transmission**: Frame sent as base64 string over WebSocket to `student[id]`.
 3.  **Processing**: Server decodes image -> MediaPipe checks landmarks -> Logic calculates "Engagement Score".
 4.  **Feedback**: Server sends result back to the specific Student client.
-5.  **Monitoring**: Server broadcasts the student's status object to all connected Teacher clients via `/ws/teacher/{class_id}`.
+5.  **Monitoring**: Server broadcasts the student's status object to all connected Teacher clients via `teacher[class_id]`.
 
 ---
 
