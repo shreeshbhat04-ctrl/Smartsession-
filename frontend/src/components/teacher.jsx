@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Monitor, Users } from 'lucide-react';
 import "../styles/teacher.css";
-
 const WS_URL = "ws://localhost:8000/ws";
 const TeacherDashboard = ({ onLogout }) => {
   const ws = useRef(null);
-  const [students, setStudents] = useState({}); // Dictionary: { studentId: { ...data } }
-
+  const [students, setStudents] = useState({}); 
   useEffect(() => {
-    // Connect to Teacher Channel (Class A)
+    //Connect to Teacher 
     try {
       ws.current = new WebSocket(`${WS_URL}/teacher/CLASS_A`);
       ws.current.onmessage = (event) => {
@@ -16,7 +14,7 @@ const TeacherDashboard = ({ onLogout }) => {
           const msg = JSON.parse(event.data);
           if (msg.type === "telemetry_update") {
             const sData = msg.data;
-            // Handle Student Logging Off
+            //  Student Logging Off
             if (sData.state === "OFFLINE") {
               setStudents(prev => {
                 const newState = { ...prev };
@@ -39,9 +37,7 @@ const TeacherDashboard = ({ onLogout }) => {
       if (ws.current) ws.current.close();
     };
   }, []);
-
-
-  /* New Color Logic:
+  /* ColorLogic:
    * Happy -> Green
    * Distracted / No Face / Multiple Faces -> Red
    * Looking Away -> Yellow
@@ -68,9 +64,6 @@ const TeacherDashboard = ({ onLogout }) => {
       default: return "bg-gray-100 text-gray-700";
     }
   };
-
-
-
   return (
     <div className="min-h-screen bg-gray-50 p-6 md:p-10 font-sans dashboard-container">
       {/* Dashboard Header */}
@@ -92,7 +85,6 @@ const TeacherDashboard = ({ onLogout }) => {
           End Class
         </button>
       </header>
-
       {/* Student Grid */}
       <div className="student-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Object.values(students).map((student) => (
@@ -117,7 +109,6 @@ const TeacherDashboard = ({ onLogout }) => {
                   {student.raw_state || student.state}
                 </span>
               </div>
-
               {/* Large Status Text */}
               <div className="py-2 text-center">
                 <div className="text-sm font-medium text-gray-500 mb-1">Current Status</div>
@@ -125,7 +116,6 @@ const TeacherDashboard = ({ onLogout }) => {
                   {student.raw_state || student.state}
                 </div>
               </div>
-
               {/* Metrics Bars */}
               <div className="space-y-3">
                 <div>
