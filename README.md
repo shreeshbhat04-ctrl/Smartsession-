@@ -17,7 +17,7 @@ The application utilizes advanced 468-point FaceMesh technology for precise dete
 ![FaceMesh Detection Demo 1](assets/facemesh_demo_1.png)
 ![FaceMesh Detection Demo 2](assets/facemesh_demo_2.png)
 ![Chart ](assets/chart.png)
-![table (1)](assets/table(1).png)
+
 
 ## Architectural Approach
 
