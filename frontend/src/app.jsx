@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Activity, Users, Monitor } from "lucide-react";
 import StudentPortal from "./components/studentport";
 import TeacherDashboard from "./components/teacher";
-
 export default function App() {
   const [role, setRole] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -29,12 +28,7 @@ export default function App() {
   }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      {/* FIXES APPLIED:
-        1. Removed 'h-[420px]' so the box fits content naturally.
-        2. Increased padding to 'p-8' to push inner boxes away from the edge.
-      */}
       <div className="w-[500px] h-[500px] flex flex-col border border-gray-300 bg-white p-12 rounded-xl mx-auto shadow-lg relative">
-
         {/* Top Section: Logo & Title */}
         <div className="flex-1 flex flex-col justify-center items-center">
           <div className="bg-blue-50 p-3 rounded-full mb-4">
@@ -48,7 +42,7 @@ export default function App() {
           </p>
         </div>
 
-        {/* Middle Section: Actions */}
+        {/* Middle Sections */}
         <div className="space-y-4 w-full mb-8">
           <button
             onClick={handleStudentLogin}
