@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Brain, AlertTriangle, CheckCircle } from 'lucide-react';
-
 const WS_URL = "ws://localhost:8000/ws";
-
 const StudentPortal = ({ studentId, name, onLogout }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -11,7 +9,6 @@ const StudentPortal = ({ studentId, name, onLogout }) => {
   const [feedback, setFeedback] = useState({ state: "NEUTRAL", message: "Initializing..." });
   const [peers, setPeers] = useState([]);
   const [teacherStatus, setTeacherStatus] = useState("OFFLINE");
-
   useEffect(() => {
     // 1. Initialize Webcam (Native API)
     const startWebcam = async () => {
@@ -120,7 +117,6 @@ const StudentPortal = ({ studentId, name, onLogout }) => {
             End Session
           </button>
         </div>
-
         <div className="flex flex-col lg:flex-row gap-2 h-full flex-1">
           {/* Main Content: Camera */}
           <div className="flex-1 flex flex-col gap-2">
@@ -142,10 +138,8 @@ const StudentPortal = ({ studentId, name, onLogout }) => {
                 {status}
               </div>
             </div>
-
             {/* Feedback Section REMOVED as per user request */}
           </div>
-
           {/* SIDEBAR - Peer & Teacher Status */}
           <div className="w-full lg:w-64 flex flex-col gap-2">
             {/* Teacher Status Card */}
@@ -158,7 +152,6 @@ const StudentPortal = ({ studentId, name, onLogout }) => {
                 </span>
               </div>
             </div>
-
             {/* Peer List Card */}
             <div className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex-1 flex flex-col">
               <div className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-2 flex justify-between items-center">
