@@ -90,3 +90,11 @@ The frontend will usually run at `http://127.0.0.1:5173`.
 - **Privacy-Focused**: Images are processed in memory and not stored.
 - **Live Teacher Dashboard**: View grid of student statuses.
 - **Instant Student Feedback**: Visual cues for students to improve focus.
+
+## Visuals
+
+### FaceMesh Technology
+The application utilizes advanced 468-point FaceMesh technology for precise gaze and emotion detection.
+
+![FaceMesh Detection Demo 1](assets/facemesh_demo_1.png)
+![FaceMesh Detection Demo 2](assets/facemesh_demo_2.png)
