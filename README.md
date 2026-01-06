@@ -2,6 +2,21 @@
 
 SmartSession is a real-time classroom monitoring assessment system that leverages computer vision to analyze student engagement and focus. It provides immediate feedback to students and live telemetry to teachers, enabling a more interactive and responsive learning environment.
 
+## Visuals
+
+### FaceMesh Technology
+The application utilizes advanced 468-point FaceMesh technology for precise detection of gaze and emotion.
+- So, this new kind of thing for me, as I had experienced computer object detection using Yolov5, but this is a bit new.
+- Here is my entire logic since the mesh account for the 468 poinst the only better way to determine is to find the distance b/w these points and map it to a different kind of emotion's state. This whole process is in the notebook section
+- This is a mix of both hardcoded and ML logic, as I custom-trained a classifier to map the values to the emotional state my traning the pics of different emotions and  making the classifier pick the difference b/w different sets of points, and it distinguished the parameters to certain classes.
+- I then had my Hardcoded cases to bypass certain distinctions, as for this type of cases there is no perfect dataset.
+- ## Result:
+- Fully duplex real-time emotion detection updation with real estimation of the student by a very good margin.
+ 
+
+![FaceMesh Detection Demo 1](assets/facemesh_demo_1.png)
+![FaceMesh Detection Demo 2](assets/facemesh_demo_2.png)
+
 ## Architectural Approach
 
 The application is built on a **Client-Server architecture** utilizing **WebSockets** for low-latency, real-time communication.
@@ -91,10 +106,8 @@ The frontend will usually run at `http://127.0.0.1:5173`.
 - **Live Teacher Dashboard**: View grid of student statuses.
 - **Instant Student Feedback**: Visual cues for students to improve focus.
 
-## Visuals
+## Future developments
+- Want to implement An Ai enabled telepromt reader, as in this analyses the lectureis analyzed  and then determined via polling in which segment of the lecture the student lost interest in class.
+- Updated UI frontend: Due to time constrint couldnot do much but have to do a better job :)
 
-### FaceMesh Technology
-The application utilizes advanced 468-point FaceMesh technology for precise gaze and emotion detection.
 
-![FaceMesh Detection Demo 1](assets/facemesh_demo_1.png)
-![FaceMesh Detection Demo 2](assets/facemesh_demo_2.png)
