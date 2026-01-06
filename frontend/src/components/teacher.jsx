@@ -45,6 +45,7 @@ const TeacherDashboard = ({ onLogout }) => {
    */
   const getCardStyle = (state) => {
     switch (state) {
+      case "Confused": return "bg-orange-50 border-orange-200 ring-2 ring-orange-100";
       case "Looking Away": return "bg-yellow-50 border-yellow-200 ring-2 ring-yellow-100";
       case "Distracted":
       case "No Face":
@@ -56,6 +57,7 @@ const TeacherDashboard = ({ onLogout }) => {
 
   const getBadgeStyle = (state) => {
     switch (state) {
+      case "Confused": return "bg-orange-100 text-orange-700";
       case "Looking Away": return "bg-yellow-100 text-yellow-700";
       case "Distracted":
       case "No Face":

@@ -3,7 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import base64
 import json
 import time
-from app.api.connection_manager import manager
+from app.api.connection_manager import ConnectionManager
+manager = ConnectionManager()
 from app.core.monitor import StudentIntegrityMonitor as StudentMonitor
 app = FastAPI()
 #middleware

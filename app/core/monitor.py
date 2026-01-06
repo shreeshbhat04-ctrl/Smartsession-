@@ -43,7 +43,7 @@ def euclid(p1, p2):
     return math.hypot(p1.x - p2.x, p1.y - p2.y)
 # Load the trained classifier
 try:
-    clf = joblib.load("model/confusion_tree.joblib")
+    clf = joblib.load("app/model/confusion_tree.joblib")
     print("Model loaded:", type(clf))
 except Exception as e:
     print(f"Warning: Model not found. {e}")
@@ -170,7 +170,7 @@ class StudentIntegrityMonitor:
             return False, 0.0   
         brow_dist = euclid(brow_l, brow_r)
         ratio = brow_dist / facewidth
-        Brow_confusion = 0.1  # threshold
+        Brow_confusion = 0.15  # threshold
         return ratio < Brow_confusion, ratio
     def predict(self, lm):
         #ML prediction for confusion
@@ -232,7 +232,7 @@ class StudentIntegrityMonitor:
             return "Confused", "Confused", gaze, feats
         #  CONFUSION 
         rule_confused, ratio = self.brow_confusion_rule(landmarks)
-        if rule_confused:
+        if rule_confused or ratio < 0.05:
             return "Confused", "Confused", gaze, feats
         # HAPPY(RULE-BASEDOVERRIDE)
         if self.is_happy(landmarks):
