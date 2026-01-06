@@ -1,14 +1,14 @@
-/* ================================
+/*
    DASHBOARD WRAPPER
-================================ */
+ */
 .dashboard-container {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-/* ================================
+/* 
    HEADER ALIGNMENT
-================================ */
+ */
 
 .dashboard-header {
   display: flex;
@@ -27,9 +27,9 @@
   }
 }
 
-/* ================================
+/*
    STUDENT GRID CENTERING
-================================ */
+ */
 .student-grid {
   max-width: 1400px;
   margin: 0 auto;
@@ -37,9 +37,9 @@
   gap: 1.5rem;
 }
 
-/* ================================
+/* 
    STUDENT CARD NORMALIZATION
-================================ */
+*/
 .student-card {
   display: flex;
   flex-direction: column;
@@ -56,16 +56,16 @@
   margin-top: auto;
 }
 
-/* ================================
+/* 
    METRIC BAR SAFETY
-================================ */
+ */
 .metric-bar {
   overflow: hidden;
 }
 
-/* ================================
+/*
    EMPTY STATE CENTERING
-================================ */
+ */
 .empty-state {
   max-width: 1400px;
   margin: 0 auto;
