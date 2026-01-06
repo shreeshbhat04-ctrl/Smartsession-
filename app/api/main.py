@@ -25,19 +25,13 @@ async def student_endpoint(websocket: WebSocket, student_id: str):
         while True:
             data = await websocket.receive_text()
             payload = json.loads(data)
-            
-            # Update name if known
             name = payload.get("name", "Unknown")
             if manager.student_names.get(student_id) != name:
                 manager.student_names[student_id] = name
                 await manager.broadcast_peer_list()
-
             if "image" not in payload:
                 continue
-            
             image_data = payload["image"].split(",")[1]
-            
-            # FORWARD FRAME (Continuous)
             await manager.forward_frame_to_teachers(student_id, image_data)
 
             image_bytes = base64.b64decode(image_data)
@@ -54,7 +48,6 @@ async def student_endpoint(websocket: WebSocket, student_id: str):
                 normalized_state = "ENGAGED"
             else:
                 normalized_state = state.upper()
-
             # SCORE DERIVATION 
             confusion_index = 0
             engagement_score = 0
@@ -64,13 +57,11 @@ async def student_endpoint(websocket: WebSocket, student_id: str):
                 engagement_score = result.get("score", 0)
             elif state == "Looking Away":
                 engagement_score = -1
-
             # 4. Send Feedback to Student
             await manager.send_personal_message(
                 {"type": "feedback", "payload": result},
                 websocket
             )
-
             # 5. Broadcast Telemetry to Teachers
             telemetry = {
                 "type": "telemetry_update",
@@ -86,7 +77,6 @@ async def student_endpoint(websocket: WebSocket, student_id: str):
                 }
             }
             await manager.broadcast_to_teachers(telemetry)
-
     except WebSocketDisconnect:
         await manager.disconnect_student(student_id)
         await manager.broadcast_to_teachers({
@@ -110,7 +100,6 @@ async def teacher_endpoint(websocket: WebSocket, class_id: str):
             data = await websocket.receive_text()
             try:
                 msg = json.loads(data)
-                # Teacher receives commands or just keeps connection open
                 pass
             except:
                 pass
