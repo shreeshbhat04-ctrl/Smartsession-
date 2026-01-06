@@ -1,1 +1,58 @@
 /venv
+/nodemodules
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node / JS
+node_modules/
+.npm/
+.yarn/
+pnpm-lock.yaml
+*.tsbuildinfo
+coverage/
+.eslintcache
+.parcel-cache/
+.turbo/
+
+# Frontend builds
+frontend/dist/
+dist/
+build/
+
+# Data & model artifacts
+CK+48/
+Smartsession/ck/
+*.joblib
+*.h5
+*.onnx
+*.tflite
+*.pth
+
+# Logs & temps
+*.log
+*.tmp
+*.cache
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+

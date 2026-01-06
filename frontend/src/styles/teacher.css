@@ -1,0 +1,77 @@
+/* ================================
+   DASHBOARD WRAPPER
+================================ */
+.dashboard-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ================================
+   HEADER ALIGNMENT
+================================ */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* Mobile header stacking */
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+/* ================================
+   STUDENT GRID CENTERING
+================================ */
+.student-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ================================
+   STUDENT CARD NORMALIZATION
+================================ */
+.student-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Ensure card content spacing stays consistent */
+.student-card-header {
+  margin-bottom: 1rem;
+}
+
+.student-card-metrics {
+  margin-top: auto;
+}
+
+/* ================================
+   METRIC BAR SAFETY
+================================ */
+.metric-bar {
+  overflow: hidden;
+}
+
+/* ================================
+   EMPTY STATE CENTERING
+================================ */
+.empty-state {
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
